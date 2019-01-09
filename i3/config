@@ -33,8 +33,10 @@ bindsym $mod+Return exec kitty
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start program launcher
+# rofi
 bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+Tab exec --no-startup-id rofi -show window
+bindsym $mod+P exec --no-startup-id ~/.config/rofi/monitor_layout.sh
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
