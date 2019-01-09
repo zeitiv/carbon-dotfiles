@@ -28,8 +28,6 @@ function gen_xrandr_only()
     echo $cmd
 }
 
-
-
 declare -i index=0
 TILES[$index]="Cancel"
 COMMANDS[$index]="true"
@@ -52,9 +50,24 @@ do
     do
         if [ $entry_a != $entry_b ]
         then
-            TILES[$index]="Dual Screen ${MONITORS[$entry_a]} -> ${MONITORS[$entry_b]}"
+            TILES[$index]="Dual Screen ${MONITORS[$entry_a]} > ${MONITORS[$entry_b]}"
             COMMANDS[$index]="xrandr --output ${MONITORS[$entry_a]} --auto \
                               --output ${MONITORS[$entry_b]} --auto --left-of ${MONITORS[$entry_a]}"
+
+            index+=1
+        fi
+    done
+done
+
+for entry_a in $(seq 0 $((${NUM_MONITORS}-1)))
+do
+    for entry_b in $(seq 0 $((${NUM_MONITORS}-1)))
+    do
+        if [ $entry_a != $entry_b ]
+        then
+            TILES[$index]="Dual Screen ${MONITORS[$entry_a]} ^ ${MONITORS[$entry_b]}"
+            COMMANDS[$index]="xrandr --output ${MONITORS[$entry_a]} --auto \
+                              --output ${MONITORS[$entry_b]} --auto --above ${MONITORS[$entry_a]}"
 
             index+=1
         fi
@@ -71,7 +84,7 @@ do
     do
         if [ $entry_a != $entry_b ]
         then
-            TILES[$index]="Clone Screen ${MONITORS[$entry_a]} -> ${MONITORS[$entry_b]}"
+            TILES[$index]="Clone Screen ${MONITORS[$entry_a]} > ${MONITORS[$entry_b]}"
             COMMANDS[$index]="xrandr --output ${MONITORS[$entry_a]} --auto \
                               --output ${MONITORS[$entry_b]} --auto --same-as ${MONITORS[$entry_a]}"
 
@@ -97,4 +110,3 @@ SEL=$( gen_entries | rofi -dmenu -p "Monitor Setup:" -a 0 -no-custom  | awk '{pr
 
 # Call xrandr
 $( ${COMMANDS[$SEL]} )
-

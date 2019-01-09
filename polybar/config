@@ -49,7 +49,7 @@ font-0 = Hack:pixelsize=10;2
 font-1 = FANTASQUESANSMONO NERD FONT:style=Solid:pixelsize=8;1
 font-2 = Font Awesome 5 Free:style=Solid:pixelsize=12;3
 
-modules-left = bspwm i3 spotify
+modules-left = bspwm i3 spotify demo
 modules-center = xwindow
 modules-right =  filesystem xbacklight alsa memory cpu temperature battery date powermenu wlan
 
@@ -67,6 +67,16 @@ scroll-down = i3wm-wsprev
 
 cursor-click = pointer
 cursor-scroll = ns-resize
+
+[module/demo]
+type = custom/ipc
+hook-0 = echo foobar
+hook-1 = date +%s
+hook-2 = whoami
+initial = 1
+click-left = polybar-msg -p %pid% hook demo 1
+click-right = polybar-msg -p %pid% hook demo 2
+double-click-left = polybar-msg -p %pid% hook demo 3
 
 [module/xwindow]
 type = internal/xwindow
