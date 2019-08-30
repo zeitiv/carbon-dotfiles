@@ -7,23 +7,17 @@
 
 ### 🏠 [Homepage](https://git.argex.dev/argex/carbon-dotfiles)
 
-## Install
-
-```sh
-npm install
-```
-
 ## Usage
 
-```sh
 Copy the files into your .config folder
-```
+
 
 ## Author
 
 👤 **theArgex**
 
 * Github: [@theArgex](https://github.com/theArgex)
+* GitTea: [@argex](https://git.argex.dev/argex)
 
 ## 🤝 Contributing
 
@@ -33,5 +27,3 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 
 Give a ⭐️ if this project helped you!
 
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
