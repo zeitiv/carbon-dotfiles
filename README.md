@@ -17,7 +17,7 @@ Copy the files into your .config folder
 👤 **theArgex**
 
 * Github: [@theArgex](https://github.com/theArgex)
-* GitTea: [@argex](https://git.argex.dev/argex)
+* Gitea: [@argex](https://git.argex.dev/argex)
 
 ## 🤝 Contributing
 
