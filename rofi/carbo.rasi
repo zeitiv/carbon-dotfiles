@@ -39,6 +39,7 @@ configuration {
     separatorcolor:              @foreground;
     background-color:            @transparent;
     spacing:                     10;
+    font-family:		 "hack";
     font:                        "30";
 }
 

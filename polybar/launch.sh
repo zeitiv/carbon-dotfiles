@@ -1,17 +1,14 @@
-#!/usr/bin/env bash
-
-sed -e
+#!/bin/sh
 
 # Terminate already running bar instances
 killall -q polybar
 
 # Wait until the processes have been shut down
-while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+while pgrep -x polybar >/dev/null; do sleep 1; done
 
-# Solution from https://github.com/jaagr/polybar/issues/763 to polybar in
-# multiple monitors
-  # Launch bar1 and bar2
-  MONITOR=$monitor polybar --reload --config=$HOME/.config/polybar/config top &
-  MONITOR=$monitor polybar --reload --config=$HOME/.config/polybar/config bottom &
+# Launch bar1 and bar2
+DISPLAY1="$(xrandr -q | grep 'eDP1\|DP1-8' | cut -d ' ' -f1)"
+[[ ! -z "$DISPLAY1" ]] && MONITOR="$DISPLAY1" polybar top &
 
-echo "Bar status launched."
+
+echo "Bars launched..."
